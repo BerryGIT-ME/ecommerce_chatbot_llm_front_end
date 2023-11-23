@@ -2,10 +2,9 @@ import { useEffect } from "react";
 import { sendMessage } from "./utils/api";
 import "./App.css";
 import { useAppContext } from "./context/AppContext";
-import TitleBar from "./components/Titlebar";
-import LeftSideBar from "./components/LeftSideBar";
-import RightSideBar from "./components/RightSideBar";
-import ChatContanier from "./components/ChatContainer";
+import TitleBar from "./components/titlebar/Titlebar";
+import LeftSideBar from "./components/left-sidebar/LeftSideBar";
+import ChatContanier from "./components/chat-container/ChatContainer";
 
 function App() {
   const value = useAppContext();
@@ -23,7 +22,6 @@ function App() {
       <section className="main-section">
         <LeftSideBar />
         <ChatContanier />
-        <RightSideBar />
       </section>
     </main>
   );

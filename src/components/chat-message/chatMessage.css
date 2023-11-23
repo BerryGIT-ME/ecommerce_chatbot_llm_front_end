@@ -1,0 +1,31 @@
+.chat-message-container {
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.user-chatmessage-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.chat-message {
+  margin: 2rem 0rem 0rem 0rem;
+  padding: 4px;
+  border-radius: 10px;
+  max-width: 70%;
+}
+
+.user-chatmessage {
+  background-color: #035f93;
+  border-radius: 8px, 8px, 0px, 8px;
+  align-self: right;
+  font-size: 5;
+  color: white;
+}
+
+.assistant-chatmessage {
+  /* border: 2px solid blue; */
+  border: 1px solid red;
+  background-color: #ece9e9;
+  font: 1;
+}
