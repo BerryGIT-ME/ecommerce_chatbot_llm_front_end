@@ -2,83 +2,8 @@ main {
   height: 100vh;
 }
 
-.title-bar {
-  border: 1px solid red;
-  height: 5vh;
-}
-
 .main-section {
   display: flex;
   flex-direction: row;
   height: 95vh;
-}
-
-.left-sidebar-container {
-  border: 1px solid black;
-  width: 20%;
-  height: 95vh;
-}
-
-.right-sidebar-container {
-  border: 1px solid green;
-  width: 20%;
-  height: 95vh;
-}
-
-.chat-container {
-  border: 1px solid yellow;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  width: 60%;
-  height: 95vh;
-}
-
-.chat-message-container {
-  width: 100%;
-}
-
-.user-chatmessage-container {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.chat-message {
-  margin: 2rem 0rem 0rem 0rem;
-  padding: 4px;
-  border-radius: 10px;
-  width: 70%;
-}
-
-.user-chatmessage {
-  border: 2px solid goldenrod;
-  align-self: right;
-}
-
-.assistant-chatmessage {
-  border: 2px solid blue;
-}
-
-.form-style {
-  display: flex;
-}
-
-.input-style {
-  width: 90%;
-  height: 100px;
-  padding: 12px 20px;
-  box-sizing: border-box;
-  border: 2px solid #ccc;
-  border-radius: 25px;
-  background-color: #f8f8f8;
-  font-size: 16px;
-  resize: none;
-}
-
-.input-btns-container {
-  width: 10%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
 }

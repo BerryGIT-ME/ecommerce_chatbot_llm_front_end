@@ -3,11 +3,11 @@ import { useState, createContext, useContext } from "react";
 const AppContext = createContext();
 
 export function AppContextProvider({ children }) {
-  const [data, setData] = useState("Test");
+  const [chats, setChats] = useState([]);
 
   const value = {
-    data,
-    setData,
+    chats,
+    setChats,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }
