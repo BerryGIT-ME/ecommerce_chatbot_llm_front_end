@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import ChatMessage from "../chat-message/ChatMessage";
 import { useAppContext } from "../../context/AppContext";
 import { SendIcon } from "../send-icon/Icons";
@@ -47,7 +47,7 @@ function ChatContanier() {
     <div className="chat-container">
       <div className="chat-messages-container">
         {chats.map((message, index) => {
-          const islastElement = index == chats.length - 1;
+          const islastElement = index === chats.length - 1;
           return (
             <ChatMessage
               chatItem={message}

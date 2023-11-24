@@ -18,7 +18,7 @@ function ChatMessage(props) {
     if (islastElement) {
       last_element_ref.current.scrollIntoView();
     }
-  }, []);
+  }, [islastElement]);
 
   const chatType = getChatType(chatItem.chat.role);
   const text = (
