@@ -3,3 +3,15 @@
   width: 40%;
   height: 95vh;
 }
+
+@media only screen and (max-width: 1200px) {
+  .left-sidebar-container {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .left-sidebar-container {
+    display: none;
+  }
+}

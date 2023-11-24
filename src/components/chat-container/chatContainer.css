@@ -1,15 +1,29 @@
 .chat-container {
-  border: 1px solid yellow;
+  /* border: 3px solid yellow; */
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-around;
+  padding: 0rem 1rem;
   width: 60%;
   height: 95vh;
+}
+
+.chat-messages-container {
+  /* border: 3px solid blueviolet; */
+  max-height: 85%;
+  padding: 0rem 1rem 1rem 1rem;
   overflow-y: scroll;
+}
+
+.chat-form-container {
+  margin: "1rem 0rem";
+  padding: "0rem 1rem";
+  /* border: 1px solid black; */
 }
 
 .form-style {
   display: flex;
+  /* border: 1px solid red; */
 }
 
 .input-style {
@@ -28,9 +42,11 @@
   border-width: 3px;
   background-color: #f8f8f8;
   height: 100px;
+  /* border: 1px solid red; */
 }
 
 .input-btns-container {
+  /* border: 1px solid red; */
   border-style: solid solid solid none;
   border-radius: 0px 25px 25px 0px;
   width: 10%;
@@ -45,4 +61,24 @@
   padding: 5px;
   background-color: rgb(19, 191, 157);
   border-radius: 5px;
+}
+
+@media only screen and (max-width: 1200px) {
+  .chat-container {
+    width: 50%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  /* For tablets: */
+  .chat-container {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /* For tablets: */
+  .chat-container {
+    padding: 0rem;
+  }
 }
