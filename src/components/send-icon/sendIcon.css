@@ -1,4 +1,28 @@
-.input-icon {
+.send-icon {
   color: white;
-  font-size: 1;
+  width: 40px;
+  height: 40px;
+}
+
+.chat-message-icon {
+  color: rgb(19, 191, 157);
+  width: 25px;
+  height: 25px;
+  margin: 0rem 0.5rem;
+}
+
+@media only screen and (max-width: 900px) {
+  /* For tablets: */
+  .send-icon {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  /* For tablets: */
+  .send-icon {
+    width: 20px;
+    height: 20px;
+  }
 }
