@@ -10,18 +10,18 @@ function ChatContanier() {
   const [inputText, setInputText] = useState("");
   const [isloading, setIsLoading] = useState(false);
 
-  function submitOnEnter(eent) {
-    if (eent.which === 13 && !eent.shiftKey) {
-      if (!eent.repeat) {
-        const neweent = new eent("submit", { cancelable: true });
-        handleSubmit(neweent);
+  function submitOnEnter(e) {
+    if (e.which === 13 && !e.shiftKey) {
+      if (!e.repeat) {
+        const newEvent = new Event("submit", { cancelable: true });
+        handleSubmit(newEvent);
       }
-      eent.preentDefault();
+      e.preventDefault();
     }
   }
 
   const handleSubmit = (e) => {
-    e.preentDefault();
+    e.preventDefault();
     if (isloading) return;
     if (inputText === "") return;
     const chatItem = {
@@ -41,6 +41,7 @@ function ChatContanier() {
 
     setIsLoading(true);
     setInputText("");
+    console.log("sending message");
     sendMessage(updatedChats, cleanup);
   };
 

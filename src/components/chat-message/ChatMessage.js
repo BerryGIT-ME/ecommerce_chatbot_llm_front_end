@@ -42,10 +42,13 @@ function ChatMessage(props) {
           </>
         )}
       </div>
-      {suggestions.length > 0 && (
+      {suggestions && suggestions.length > 0 && (
         <div className="product-container">
           {suggestions.map((product) => (
-            <Product productItem={product} />
+            <Product
+              key={product.id}
+              productItem={product}
+            />
           ))}
         </div>
       )}

@@ -7,7 +7,7 @@ function TitleBar() {
       <div
         style={{ margin: "0rem 1rem", display: "flex", alignItems: "center" }}>
         <RobotIcon className={"title-robot"} />
-        <p className="title-bar-text">Sturten e-commerce AI</p>
+        <p className="title-bar-text">Sturten AI</p>
       </div>
       <CartIcon />
     </div>
