@@ -1,4 +1,26 @@
 .title-bar {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: 5vh;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(19, 191, 157);
+  align-items: center;
+}
+
+.title-bar-text {
+  font-family: "Montserrat", sans-serif;
+  font-family: "Pacifico", cursive;
+  font-size: x-large;
+  color: white;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  /* text-transform: uppercase; */
+}
+
+.title-robot {
+  color: white;
+  width: 30px;
+  height: 30px;
+  margin: 0rem 0.5rem;
 }

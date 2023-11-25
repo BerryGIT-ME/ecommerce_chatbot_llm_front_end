@@ -31,3 +31,11 @@
   padding: 15px;
   background-color: #ece9e9;
 }
+
+.product-container {
+  /* border: 1px solid red; */
+  height: 280px;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+}

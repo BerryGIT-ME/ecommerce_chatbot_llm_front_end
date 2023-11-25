@@ -1,7 +1,21 @@
 .left-sidebar-container {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   width: 40%;
   height: 95vh;
+  background-image: url("../../img/shop.jpg");
+  background-position: center;
+  background-size: cover;
+  color: white;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidbar-text {
+  font-family: "Montserrat", sans-serif;
+  font-family: "Pacifico", cursive;
+  font-size: xx-large;
 }
 
 @media only screen and (max-width: 1200px) {
