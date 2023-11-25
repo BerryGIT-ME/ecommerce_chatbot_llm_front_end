@@ -4,6 +4,13 @@
   height: 40px;
 }
 
+.cart-icon {
+  color: white;
+  width: 30px;
+  height: 30px;
+  margin: 0rem 1rem;
+}
+
 .chat-message-icon {
   color: rgb(19, 191, 157);
   width: 25px;

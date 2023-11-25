@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import { RobotIcon, UserIcon } from "../send-icon/Icons";
+import Product from "../product/Product";
 import "./chatMessage.css";
 
 function getChatType(chatRole) {
@@ -12,6 +13,7 @@ function getChatType(chatRole) {
 
 function ChatMessage(props) {
   const { chatItem, islastElement } = props;
+  const { chat, suggestions } = chatItem;
   const last_element_ref = useRef();
 
   useEffect(() => {
@@ -20,27 +22,34 @@ function ChatMessage(props) {
     }
   }, [islastElement]);
 
-  const chatType = getChatType(chatItem.chat.role);
-  const text = (
-    <div className={chatType + " chat-message"}>{chatItem.chat.content}</div>
-  );
+  const chatType = getChatType(chat.role);
+  const text = <div className={chatType + " chat-message"}>{chat.content}</div>;
   return (
-    <div
-      ref={islastElement ? last_element_ref : undefined}
-      id={islastElement ? "last-element" : ""}
-      className={"chat-message-container " + chatType + "-container"}>
-      {chatType === "user-chatmessage" ? (
-        <>
-          {text}
-          <UserIcon />
-        </>
-      ) : (
-        <>
-          <RobotIcon />
-          {text}
-        </>
+    <>
+      <div
+        ref={islastElement ? last_element_ref : undefined}
+        id={islastElement ? "last-element" : ""}
+        className={"chat-message-container " + chatType + "-container"}>
+        {chatType === "user-chatmessage" ? (
+          <>
+            {text}
+            <UserIcon />
+          </>
+        ) : (
+          <>
+            <RobotIcon className={"chat-message-icon robot-icon"} />
+            {text}
+          </>
+        )}
+      </div>
+      {suggestions.length > 0 && (
+        <div className="product-container">
+          {suggestions.map((product) => (
+            <Product productItem={product} />
+          ))}
+        </div>
       )}
-    </div>
+    </>
   );
 }
 
