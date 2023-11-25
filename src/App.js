@@ -5,6 +5,7 @@ import { useAppContext } from "./context/AppContext";
 import TitleBar from "./components/titlebar/Titlebar";
 import LeftSideBar from "./components/left-sidebar/LeftSideBar";
 import ChatContanier from "./components/chat-container/ChatContainer";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const value = useAppContext();
@@ -23,6 +24,7 @@ function App() {
         <LeftSideBar />
         <ChatContanier />
       </section>
+      <Footer />
     </main>
   );
 }

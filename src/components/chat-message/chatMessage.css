@@ -38,4 +38,5 @@
   display: flex;
   flex-wrap: nowrap;
   overflow-x: scroll;
+  margin: 0rem 2.5rem;
 }
