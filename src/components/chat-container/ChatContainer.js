@@ -10,18 +10,18 @@ function ChatContanier() {
   const [inputText, setInputText] = useState("");
   const [isloading, setIsLoading] = useState(false);
 
-  function submitOnEnter(event) {
-    if (event.which === 13 && !event.shiftKey) {
-      if (!event.repeat) {
-        const newEvent = new Event("submit", { cancelable: true });
-        handleSubmit(newEvent);
+  function submitOnEnter(eent) {
+    if (eent.which === 13 && !eent.shiftKey) {
+      if (!eent.repeat) {
+        const neweent = new eent("submit", { cancelable: true });
+        handleSubmit(neweent);
       }
-      event.preventDefault();
+      eent.preentDefault();
     }
   }
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preentDefault();
     if (isloading) return;
     if (inputText === "") return;
     const chatItem = {
@@ -43,6 +43,31 @@ function ChatContanier() {
     setInputText("");
     sendMessage(updatedChats, cleanup);
   };
+
+  function dropHandler(e) {
+    e.preventDefault();
+    let file;
+    if (e.dataTransfer.items) {
+      const droppedItems = [...e.dataTransfer.items];
+      const droppedItem = droppedItems[0];
+      if (droppedItem.kind === "file") {
+        file = droppedItem.getAsFile();
+      }
+    } else {
+      // Use DataTransfer interface to access the file(s)
+      const droppedFiles = [...e.dataTransfer.files];
+      file = droppedFiles[0];
+    }
+    if (file.type !== "image/jpeg") {
+      alert("The app can only process jpeg image files at this time");
+      return;
+    }
+  }
+
+  function dragHandler(e) {
+    e.preventDefault();
+  }
+
   return (
     <div className="chat-container">
       <div className="chat-messages-container">
@@ -63,7 +88,10 @@ function ChatContanier() {
           />
         )}
       </div>
-      <div className="chat-form-container">
+      <div
+        className="chat-form-container"
+        onDrop={dropHandler}
+        onDragOver={dragHandler}>
         <form
           className="form-style"
           onSubmit={handleSubmit}>
