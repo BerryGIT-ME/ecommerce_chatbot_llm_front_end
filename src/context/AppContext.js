@@ -72,7 +72,7 @@ const testMessages = [
   {
     chat: {
       role: "assistant",
-      content: "Hi there, how can I assist you find the right product",
+      content: "Hi there, how can I assist you to find the right product",
     },
     suggestions: [],
   },
@@ -159,7 +159,7 @@ const testMessages = [
 ];
 
 export function AppContextProvider({ children }) {
-  const [chats, setChats] = useState(testMessages);
+  const [chats, setChats] = useState(initializeChat);
 
   const value = {
     chats,
