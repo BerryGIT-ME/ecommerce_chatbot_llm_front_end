@@ -40,3 +40,14 @@
   overflow-x: scroll;
   margin: 0rem 2.5rem;
 }
+
+.uplaoded-image-container {
+  width: 200px;
+  height: 200px;
+}
+
+.uploaded-image {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
