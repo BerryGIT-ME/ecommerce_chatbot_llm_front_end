@@ -84,7 +84,17 @@ function ChatContanier() {
         })}
         {isloading && (
           <ChatMessage
-            chatItem={{ chat: { role: "assistant", content: "Thinking..." } }}
+            chatItem={{
+              chat: {
+                role: "assistant",
+                content: (
+                  <div
+                    class="spinner-grow spinner-grow-sm"
+                    style={{ width: "2rem", height: "2rem" }}
+                    role="status"></div>
+                ),
+              },
+            }}
             islastElement
           />
         )}

@@ -5,11 +5,13 @@ function Product(props) {
 
   return (
     <div className="product">
-      <img
-        src={productItem.product_image_url}
-        className="product-image"
-        alt="product"
-      />
+      <div className="image-container">
+        <img
+          src={productItem.product_image_url}
+          className="product-image"
+          alt="product"
+        />
+      </div>
       <div className="product-name-container">{productItem.name}</div>
       <div className="action-btn-container">
         <div
