@@ -8,6 +8,7 @@ function Product(props) {
       <img
         src={productItem.product_image_url}
         className="product-image"
+        alt="product"
       />
       <div className="product-name-container">{productItem.name}</div>
       <div className="action-btn-container">
