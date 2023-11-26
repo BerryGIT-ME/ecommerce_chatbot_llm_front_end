@@ -2,7 +2,7 @@ import { useState } from "react";
 import ChatMessage from "../chat-message/ChatMessage";
 import { useAppContext } from "../../context/AppContext";
 import { SendIcon } from "../send-icon/Icons";
-import { sendMessage } from "../../utils/api";
+import { sendFile, sendMessage } from "../../utils/api";
 import "./chatContainer.css";
 
 function ChatContanier() {
@@ -20,6 +20,13 @@ function ChatContanier() {
     }
   }
 
+  const cleanup = (status, data) => {
+    if (status) {
+      setChats((chats) => [...chats, data]);
+    }
+    setIsLoading(false);
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isloading) return;
@@ -32,16 +39,8 @@ function ChatContanier() {
     const updatedChats = [...chats, chatItem];
     setChats(updatedChats);
 
-    const cleanup = (status, data) => {
-      if (status) {
-        setChats((chats) => [...chats, data]);
-      }
-      setIsLoading(false);
-    };
-
     setIsLoading(true);
     setInputText("");
-    console.log("sending message");
     sendMessage(updatedChats, cleanup);
   };
 
@@ -59,10 +58,29 @@ function ChatContanier() {
       const droppedFiles = [...e.dataTransfer.files];
       file = droppedFiles[0];
     }
-    if (file.type !== "image/jpeg") {
-      alert("The app can only process jpeg image files at this time");
-      return;
-    }
+    // if (file.type !== "image/jpeg") {
+    //   alert("The app can only process jpeg image files at this time");
+    //   return;
+    // }
+
+    const chatItem = {
+      chat: {
+        role: "user",
+        content: "Search for products like this",
+      },
+      suggestions: [
+        {
+          product_image_url: URL.createObjectURL(file),
+          name: "",
+          customer_image_upload: "True",
+        },
+      ],
+    };
+    setChats((chats) => [...chats, chatItem]);
+    setIsLoading(true);
+    setTimeout(() => {
+      sendFile(file, cleanup);
+    }, 3000);
   }
 
   function dragHandler(e) {
