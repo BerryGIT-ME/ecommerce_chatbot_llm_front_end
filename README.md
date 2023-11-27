@@ -6,7 +6,7 @@ backend live url: https://flask-production-d89c.up.railway.app/
 
 figma design url: https://www.figma.com/file/JVQWNLV8Umqwg3YFLMHyYa/Stutern-57?type=design&node-id=26-79&mode=design
 
-loom walkthrough video:
+loom walkthrough video: https://www.loom.com/share/3198a6e345af4be2af2c30a99fc9cfa9?sid=590ad1bf-33e4-44da-9e09-4ba5108752c3
 
 Please not that ALL environment variables which includes database credentials and api keys are available in a google document file submitted as the project PRD.
 
