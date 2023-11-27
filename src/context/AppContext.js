@@ -14,10 +14,19 @@ const initializeChat = [
 
 export function AppContextProvider({ children }) {
   const [chats, setChats] = useState(initializeChat);
+  const [cartItems, setCartItems] = useState([]);
+  const [showCartModal, setShowCartModal] = useState(false);
+  const [showTutoial, setShowTutoial] = useState(false);
 
   const value = {
     chats,
     setChats,
+    cartItems,
+    setCartItems,
+    showCartModal,
+    setShowCartModal,
+    showTutoial,
+    setShowTutoial,
   };
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }

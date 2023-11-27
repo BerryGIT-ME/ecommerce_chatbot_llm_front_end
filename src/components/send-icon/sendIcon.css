@@ -9,6 +9,7 @@
   width: 30px;
   height: 30px;
   margin: 0rem 1rem;
+  cursor: pointer;
 }
 
 .chat-message-icon {
