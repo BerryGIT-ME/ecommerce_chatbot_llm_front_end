@@ -3,6 +3,7 @@ import TitleBar from "./components/titlebar/Titlebar";
 import LeftSideBar from "./components/left-sidebar/LeftSideBar";
 import ChatContanier from "./components/chat-container/ChatContainer";
 import Footer from "./components/footer/Footer";
+import { CartModal } from "./components/modal/modal";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <ChatContanier />
       </section>
       <Footer />
+      <CartModal />
     </main>
   );
 }

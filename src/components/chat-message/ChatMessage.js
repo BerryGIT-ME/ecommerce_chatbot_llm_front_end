@@ -38,6 +38,7 @@ function ChatMessage(props) {
           <img
             src={suggestions[0].product_image_url}
             className="uploaded-image"
+            alt="product"
           />
         </div>
       </div>
