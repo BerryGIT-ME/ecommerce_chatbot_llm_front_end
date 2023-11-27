@@ -126,4 +126,60 @@ export function CartModal(props) {
     </Modal>
   );
 }
+const steps = [
+  "We recommend you upload a pic of the product you are interested in and our chatbot will take care of the rest",
+  "If a pic is not available, Thats fine, simply describe to our chatbot what you want e.g Hello, do you have some of the latest mobile phones",
+  "Add any of the returned suggestions to the cart by clicking the Buy Now or Add to cart button",
+  "When you are done shopping click on the the cart icon to see the items in your cart",
+  "Click to checkout button to finalize the transaction",
+];
+export function TutorialModal(props) {
+  const { showTutoial, setShowTutoial } = useAppContext();
+  const handleClose = () => setShowTutoial(false);
+
+  return (
+    <Modal showModal={showTutoial}>
+      <div style={{ overflow: "scroll" }}>
+        <div
+          onClick={() => setShowTutoial(false)}
+          style={{
+            color: "white",
+            position: "absolute",
+            top: "15px",
+            right: "15px",
+            border: "3px solid red",
+            width: "25px",
+            height: "25px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "50%",
+            cursor: "pointer",
+            backgroundColor: "red",
+          }}>
+          X
+        </div>
+        <div className="tutorial-text">
+          <p
+            className="text-header"
+            style={{ textAlign: "center" }}>
+            5 steps for seamles shopping experience
+          </p>
+          <ul>
+            {steps.map((text) => (
+              <li key={text}>{text}</li>
+            ))}
+          </ul>
+          <div style={{ textAlign: "center" }}>
+            <button
+              onClick={handleClose}
+              className="action-btn buy-btn">
+              End tutorial
+            </button>
+          </div>
+        </div>
+      </div>
+    </Modal>
+  );
+}
 export default Modal;
