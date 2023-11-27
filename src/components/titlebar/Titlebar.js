@@ -1,5 +1,7 @@
 import "./titlebar.css";
-import { CartIcon, RobotIcon } from "../send-icon/Icons";
+import { CartIcon, HelpIcon, RobotIcon } from "../send-icon/Icons";
+import Tooltip from "../tooltip/tooltip";
+import IntroMessage from "../intro-message/IntroMessage";
 
 function TitleBar() {
   return (
@@ -9,7 +11,19 @@ function TitleBar() {
         <RobotIcon className={"title-robot"} />
         <p className="title-bar-text">Sturten AI</p>
       </div>
-      <CartIcon />
+      <div>
+        <Tooltip
+          message={"Start a quick tutorial"}
+          position={"right"}>
+          <HelpIcon />
+        </Tooltip>
+        <Tooltip
+          message={"Click to see items in the cart"}
+          position={"right"}>
+          <CartIcon />
+        </Tooltip>
+      </div>
+      <IntroMessage />
     </div>
   );
 }

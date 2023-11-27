@@ -8,7 +8,7 @@
   outline: none;
   border: 2px solid rgb(19, 191, 157);
   /* opacity: 0.9; */
-  /* overflow-y: scroll; */
+  overflow-y: scroll;
 }
 .cart-items-container {
   /* border: 1px solid red; */
@@ -20,6 +20,20 @@
   align-items: center;
   justify-content: center;
   margin-top: 10px;
+}
+.tutorial-text {
+  /* font-family: "Montserrat", sans-serif; */
+  color: rgb(19, 191, 157);
+
+  font-family: Montserrat;
+  height: 250px;
+}
+
+.tutorial-text p {
+  margin: 1rem 0rem;
+  padding: 0;
+  font-family: "Pacifico", cursive;
+  font-size: medium;
 }
 
 @media only screen and (max-width: 500px) {

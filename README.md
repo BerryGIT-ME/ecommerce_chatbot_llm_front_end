@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+# Live links
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+front-end live url: https://ecommerce-chatbot-llm-front-end.vercel.app/
 
-## Available Scripts
+backend live url: https://flask-production-d89c.up.railway.app/
 
-In the project directory, you can run:
+figma design url: https://www.figma.com/file/JVQWNLV8Umqwg3YFLMHyYa/Stutern-57?type=design&node-id=26-79&mode=design
 
-### `npm start`
+loom walkthrough video:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Please not that ALL environment variables which includes database credentials and api keys are available in a google document file submitted as the project PRD.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Installation
 
-### `npm test`
+## Frontend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Clone the frontend repo
+- cd into the repo directory
+- There is no need to create a `.env` file for the front end as a `.env` file is present in the repo already. You may alter the value of the `REACT_APP_API_ENDPOINT` environment variable if by default the flask backend does not run in the specified ip address and port
+- install the packages - `npm install`
+- start the dev server - `npm start`
 
-### `npm run build`
+## Backend
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Clone the backend repo
+- cd into the repo directory
+- We strongly recommend that you check out the `with-image-search` branch of the repo. This branch contains updated code and packages for running the app in multimodal configuration. Check the notes about our desigh section to see the justification for this. TLDR - image size too large to deploy.
+- use the sample.env as a template and create a `.env` file.
+- Populate the `.env` file with data available in the google docs shared as the project PRD during submission
+- (optional) Create a python environment - `python -m venv env` or `python3 -m venv env`
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- (optional) Activate the environment - `source env/bin/activate` not this is for a unix based os e.g linux and mac
+- install the packages - `pip install -r requirements.txt`
+- start the dev server - `python main.py`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Please note that when testing locally, the web app requres that backend server be at `http://127.0.0.1:5000` if the flask app is started with a different Ip address please update the `REACT_APP_API_ENDPOINT` environment variable in the `.env` file of the front end repo to the ip addesss of the flask server and restart the web app - make sure to follow the format already existing in the `.env` file.
 
-### `npm run eject`
+# Important notes about the design
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The video walkthrough demoed a version of this application that is capable of handling multimodal data - You can upload images to the chat bot and get products that are similar from the database. We felt that adding this was a huge step to bridging the gap between complex data managment and an intuitive user experience.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+However implementing that solution involvs deploying a image transformer locally and using that for generating embeddings for media files. This results in a really large build size which we were unable to deploy with our current cloud host provider even after paying for a higer tier. As a result the demo shown was of a version of the application that is in the `with-image-search` branch.
