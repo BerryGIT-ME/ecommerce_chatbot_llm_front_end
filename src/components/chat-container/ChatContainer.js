@@ -2,7 +2,7 @@ import { useState } from "react";
 import ChatMessage from "../chat-message/ChatMessage";
 import { useAppContext } from "../../context/AppContext";
 import { SendIcon } from "../send-icon/Icons";
-import { sendMessage } from "../../utils/api";
+import { sendFile, sendMessage } from "../../utils/api";
 import "./chatContainer.css";
 
 function ChatContanier() {
@@ -10,18 +10,25 @@ function ChatContanier() {
   const [inputText, setInputText] = useState("");
   const [isloading, setIsLoading] = useState(false);
 
-  function submitOnEnter(eent) {
-    if (eent.which === 13 && !eent.shiftKey) {
-      if (!eent.repeat) {
-        const neweent = new eent("submit", { cancelable: true });
-        handleSubmit(neweent);
+  function submitOnEnter(e) {
+    if (e.which === 13 && !e.shiftKey) {
+      if (!e.repeat) {
+        const newEvent = new Event("submit", { cancelable: true });
+        handleSubmit(newEvent);
       }
-      eent.preentDefault();
+      e.preventDefault();
     }
   }
 
+  const cleanup = (status, data) => {
+    if (status) {
+      setChats((chats) => [...chats, data]);
+    }
+    setIsLoading(false);
+  };
+
   const handleSubmit = (e) => {
-    e.preentDefault();
+    e.preventDefault();
     if (isloading) return;
     if (inputText === "") return;
     const chatItem = {
@@ -31,13 +38,6 @@ function ChatContanier() {
 
     const updatedChats = [...chats, chatItem];
     setChats(updatedChats);
-
-    const cleanup = (status, data) => {
-      if (status) {
-        setChats((chats) => [...chats, data]);
-      }
-      setIsLoading(false);
-    };
 
     setIsLoading(true);
     setInputText("");
@@ -58,10 +58,29 @@ function ChatContanier() {
       const droppedFiles = [...e.dataTransfer.files];
       file = droppedFiles[0];
     }
-    if (file.type !== "image/jpeg") {
-      alert("The app can only process jpeg image files at this time");
-      return;
-    }
+    // if (file.type !== "image/jpeg") {
+    //   alert("The app can only process jpeg image files at this time");
+    //   return;
+    // }
+
+    const chatItem = {
+      chat: {
+        role: "user",
+        content: "Search for products like this",
+      },
+      suggestions: [
+        {
+          product_image_url: URL.createObjectURL(file),
+          name: "",
+          customer_image_upload: "True",
+        },
+      ],
+    };
+    setChats((chats) => [...chats, chatItem]);
+    setIsLoading(true);
+    setTimeout(() => {
+      sendFile(file, cleanup);
+    }, 3000);
   }
 
   function dragHandler(e) {
@@ -83,7 +102,18 @@ function ChatContanier() {
         })}
         {isloading && (
           <ChatMessage
-            chatItem={{ chat: { role: "assistant", content: "Thinking..." } }}
+            key={"some key"}
+            chatItem={{
+              chat: {
+                role: "assistant",
+                content: (
+                  <div
+                    className="spinner-grow spinner-grow-sm"
+                    style={{ width: "2rem", height: "2rem" }}
+                    role="status"></div>
+                ),
+              },
+            }}
             islastElement
           />
         )}
@@ -103,7 +133,7 @@ function ChatContanier() {
             value={inputText}
             onChange={(e) => setInputText(e.target.value)}
             onKeyDown={submitOnEnter}
-            placeholder="Chat with our store assistant e.g What are some top products right now"
+            placeholder="Chat with our store assistant or Drag a pic of a product your are searching for here"
           />
           <div className="input-btns-container common-input-style">
             <button

@@ -1,21 +1,11 @@
-import { useEffect } from "react";
-import { sendMessage } from "./utils/api";
 import "./App.css";
-import { useAppContext } from "./context/AppContext";
 import TitleBar from "./components/titlebar/Titlebar";
 import LeftSideBar from "./components/left-sidebar/LeftSideBar";
 import ChatContanier from "./components/chat-container/ChatContainer";
+import Footer from "./components/footer/Footer";
+import { CartModal, TutorialModal } from "./components/modal/modal";
 
 function App() {
-  const value = useAppContext();
-  useEffect(() => {
-    const messages = [
-      { role: "user", content: "Can you generate sql queries?" },
-    ];
-    // sendMessage({ messages });
-    // value.setData("New text");
-  });
-
   return (
     <main className="main">
       <TitleBar />
@@ -23,6 +13,9 @@ function App() {
         <LeftSideBar />
         <ChatContanier />
       </section>
+      <Footer />
+      <CartModal />
+      <TutorialModal />
     </main>
   );
 }

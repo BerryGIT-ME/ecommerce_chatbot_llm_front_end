@@ -1,3 +1,4 @@
+import { useAppContext } from "../../context/AppContext";
 import "./sendIcon.css";
 
 export function SendIcon() {
@@ -41,13 +42,47 @@ export function UserIcon() {
 }
 
 export function CartIcon() {
+  const { setShowCartModal, cartItems } = useAppContext();
+  const handleClick = () => setShowCartModal(true);
+  return (
+    <span style={{ position: "relative" }}>
+      {cartItems && cartItems.length > 0 && (
+        <div
+          style={{
+            position: "absolute",
+            top: "0px",
+            right: "0px",
+            height: "10px",
+            width: "10px",
+            backgroundColor: "red",
+            borderRadius: "50%",
+          }}></div>
+      )}
+      <svg
+        onClick={handleClick}
+        className="cart-icon"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 16 16">
+        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+      </svg>
+    </span>
+  );
+}
+
+export function HelpIcon() {
+  const { setShowTutoial } = useAppContext();
   return (
     <svg
-      className="cart-icon"
+      onClick={() => setShowTutoial(true)}
+      height={30}
+      width={30}
+      className="help-icon"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
       viewBox="0 0 16 16">
-      <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2" />
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+      <path d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94" />
     </svg>
   );
 }

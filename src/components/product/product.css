@@ -13,6 +13,11 @@
   object-fit: contain;
 }
 
+.image-container {
+  width: 251px;
+  height: 111px;
+}
+
 .product-name-container {
   /* border: 1px solid red; */
   height: 50px;

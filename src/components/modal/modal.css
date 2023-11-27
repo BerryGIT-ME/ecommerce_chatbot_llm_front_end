@@ -1,0 +1,48 @@
+.modal-base {
+  position: fixed;
+  top: 25vh;
+  right: 10vw;
+  width: 400px;
+  height: 300px;
+  border-radius: 20px;
+  outline: none;
+  border: 2px solid rgb(19, 191, 157);
+  /* opacity: 0.9; */
+  overflow-y: scroll;
+}
+.cart-items-container {
+  /* border: 1px solid red; */
+  height: 230px;
+  overflow: scroll;
+}
+.cart-btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+.tutorial-text {
+  /* font-family: "Montserrat", sans-serif; */
+  color: rgb(19, 191, 157);
+
+  font-family: Montserrat;
+  height: 250px;
+}
+
+.tutorial-text p {
+  margin: 1rem 0rem;
+  padding: 0;
+  font-family: "Pacifico", cursive;
+  font-size: medium;
+}
+
+@media only screen and (max-width: 500px) {
+  /* For tablets: */
+  .modal-base {
+    position: fixed;
+    top: 25%;
+    right: 2%;
+    width: 90%;
+    height: 300px;
+  }
+}

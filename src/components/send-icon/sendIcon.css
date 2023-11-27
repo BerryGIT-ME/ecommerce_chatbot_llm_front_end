@@ -9,6 +9,7 @@
   width: 30px;
   height: 30px;
   margin: 0rem 1rem;
+  cursor: pointer;
 }
 
 .chat-message-icon {
@@ -17,7 +18,12 @@
   height: 25px;
   margin: 0rem 0.5rem;
 }
-
+.help-icon {
+  width: 30px;
+  height: 30px;
+  color: white;
+  cursor: pointer;
+}
 @media only screen and (max-width: 900px) {
   /* For tablets: */
   .send-icon {

@@ -2,10 +2,10 @@
   /* border: 3px solid yellow; */
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  padding: 0rem 1rem;
+  justify-content: flex-end;
+  padding: 1rem;
   width: 60%;
-  height: 95vh;
+  height: 90vh;
 }
 
 .chat-messages-container {
@@ -80,5 +80,6 @@
   /* For tablets: */
   .chat-container {
     padding: 0rem;
+    padding-bottom: 1rem;
   }
 }

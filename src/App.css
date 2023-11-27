@@ -5,5 +5,5 @@ main {
 .main-section {
   display: flex;
   flex-direction: row;
-  height: 95vh;
+  height: 90vh;
 }
